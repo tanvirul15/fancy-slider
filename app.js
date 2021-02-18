@@ -6,6 +6,7 @@ const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
 const searchInput = document.getElementById('search');
 const durationInput = document.getElementById('duration');
+const backBtn = document.getElementById('back-btn');
 // selected image 
 let sliders = [];
 
@@ -52,7 +53,7 @@ const selectItem = (event, img) => {
         })
     }
 }
-var timer
+let timer
 const createSlider = () => {
     // check slider image length
     if (sliders.length < 2) {
@@ -91,6 +92,14 @@ const createSlider = () => {
         changeSlide(slideIndex);
     }, duration);
 }
+
+//-----New Feature: Back Button listener to go back to the image search page
+backBtn.addEventListener("click", e => {
+    document.querySelector('.main').style.display = 'none';
+    imagesArea.style.display = 'block';
+    sliderContainer.innerHTML = "";
+    clearInterval(timer);
+})
 
 // change slider index 
 const changeItem = index => {
