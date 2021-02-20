@@ -77,7 +77,7 @@ const createSlider = () => {
     imagesArea.style.display = 'none';
     let duration = document.getElementById('duration').value || 1000;
     //Minimum slider speed in 1s
-    if (duration < 1000) {
+    if (duration < 1000 || isNaN(duration)) {
         duration = 1000;
         alert("Minimum slider speed is 1s");
     }
